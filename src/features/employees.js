@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { selectEmployees } from '../utils/selectors';
 
 const initialState = {
   status: 'void',
@@ -54,3 +55,57 @@ const { actions, reducer } = employeesSlice;
 export const { fetching, resolved, rejected } = actions;
 
 export default reducer;
+
+export const getEmployees = () => {
+  return async (dispatch, getState) => {
+    const status = selectEmployees(getState()).status;
+
+    if (status === 'pending' || status === 'updating') {
+      return;
+    }
+
+    dispatch(fetching());
+
+    try {
+      const employees = JSON.parse(localStorage.getItem('employees')) || [];
+      dispatch(resolved(employees));
+    } catch (error) {
+      dispatch(rejected(error));
+    }
+  };
+};
+
+export const createEmployee = (newEmployee) => {
+  return async (dispatch, getState) => {
+    const status = selectEmployees(getState()).status;
+
+    if (status === 'pending' || status === 'updating') {
+      return;
+    }
+
+    dispatch(fetching());
+
+    try {
+      const employees = JSON.parse(localStorage.getItem('employees')) || [];
+
+      const employee = {
+        firstName: newEmployee.firstName,
+        lastName: newEmployee.lastName,
+        dateOfBirth: newEmployee.dateOfBirth,
+        startDate: newEmployee.startDate,
+        department: newEmployee.department,
+        street: newEmployee.street,
+        city: newEmployee.city,
+        state: newEmployee.state,
+        zipCode: newEmployee.zipCode,
+      };
+
+      employees.push(employee);
+      localStorage.setItem('employees', JSON.stringify(employees));
+
+      dispatch(resolved(employees));
+    } catch (error) {
+      dispatch(rejected(error));
+    }
+  };
+};
