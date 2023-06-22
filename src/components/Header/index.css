@@ -37,13 +37,14 @@
 }
 
 .header__nav a {
-  font-size: 1.1vw;
+  font-size: 1vw;
+  font-weight: bold;
   color: #93ad18;
   text-decoration: none;
   text-align: center;
   background-color: #ffffff;
   border-radius: 2.5vw;
-  padding: 1vw 2vw;
+  padding: .75vw 1.5vw;
   transform: scale(1);
   transition: all 0.3s ease-in-out;
 }
