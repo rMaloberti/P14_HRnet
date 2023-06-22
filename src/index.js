@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CreateEmployee } from './pages/CreateEmployee';
 import { Provider } from 'react-redux';
 import store from './utils/store';
+import { CurrentEmployees } from './pages/CurrentEmployees';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<CreateEmployee />} />
-          <Route path="list" element={null} />
+          <Route path="/list" element={<CurrentEmployees />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
