@@ -1,16 +1,17 @@
 .header {
-  width: 100vw;
+  width: 100%;
   background-color: #ececec;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1vw 5vw;
+  padding: 1vw 0;
 }
 
 .header__logo {
   display: flex;
   align-items: center;
   gap: 2vw;
+  margin-left: 5vw;
 }
 
 .header__logo__thumbnail {
@@ -30,10 +31,10 @@
 }
 
 .header__nav {
-  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 5vw;
 }
 
 .header__nav a {
