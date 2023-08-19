@@ -3,8 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Header } from '../../components/Header';
 import './index.css';
-import { Select } from '../../components/Select';
-import { FeedbackModal } from '../../components/FeedbackModal';
+import { FeedbackModal, Select } from 'rmaloberti-p14-form-react-components';
 import { useDispatch } from 'react-redux';
 import { createEmployee } from '../../features/employees';
 
@@ -107,8 +106,8 @@ export const CreateEmployee = () => {
       createEmployee({
         firstName: firstName,
         lastName: lastName,
-        dateOfBirth: birthDate.toString(),
-        startDate: startDate.toString(),
+        dateOfBirth: birthDate.toLocaleDateString('en-US'),
+        startDate: startDate.toLocaleDateString('en-US'),
         department: department,
         street: street,
         city: city,
