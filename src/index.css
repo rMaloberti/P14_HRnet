@@ -8,3 +8,16 @@ body {
 code {
   font-family: 'Montserrat', monospace;
 }
+
+.page {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page__title {
+  font-size: 1.5vw;
+  color: #6E8510;
+  font-weight: bold;
+}

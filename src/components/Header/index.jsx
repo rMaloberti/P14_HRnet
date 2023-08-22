@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.jpg';
+import './index.css';
 
 export const Header = (props) => {
   const { page } = props;
@@ -13,7 +14,7 @@ export const Header = (props) => {
         <h1 className="header__logo__title">HRnet</h1>
       </div>
       <nav className="header__nav">
-        {page === 'list' ? (
+        {page === 'current-employees' ? (
           <Link to="/">Create employee</Link>
         ) : (
           <Link to="/list">View current employees</Link>
